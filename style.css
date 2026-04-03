@@ -12,10 +12,11 @@
     font-family: 'MinecraftFont', monospace !important; 
 }
 
-body { 
-    background-color: #000; 
-    overflow-x: hidden; 
-    color: white;
+body {
+    min-width: 1200px; /* Ensures the page never squishes smaller than desktop width */
+    -webkit-text-size-adjust: 100%; /* Prevents mobile browsers from automatically enlarging text */
+    background-color: #000;
+    overflow-x: auto; /* Changed from hidden to auto so users can swipe left/right if needed */
 }
 
 /* 3. GLOBAL BACKGROUND VIDEO */
@@ -31,7 +32,13 @@ body {
 }
 
 /* 4. VIEW SYSTEM */
-.view { display: none; opacity: 0; transition: opacity 0.5s ease; width: 100%; }
+.view {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    width: 1200px; /* Set fixed width instead of 100% */
+    margin: 0 auto; /* Keeps it centered */
+}
 .view.active { display: block; opacity: 1; }
 .global-header { text-align: center; padding-top: 80px; padding-bottom: 20px; }
 
